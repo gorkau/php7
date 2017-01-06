@@ -21,6 +21,10 @@ RUN apt-get update \
     && chmod +x phpunit.phar \
     && mv phpunit.phar /usr/bin/phpunit \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
+    && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install npm@4.0 -g \
+    && npm install --global gulp-cli \
     && mkdir /run/php \
     && apt-get remove -y --purge software-properties-common \
     && apt-get clean \
