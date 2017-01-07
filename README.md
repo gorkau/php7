@@ -12,6 +12,16 @@ Incluye:
 
 ## Notas
 
+### Problemas con Gulp
+
+Si al ejecutar Gulp aparece un mensaje similar a éste:
+
+Node Sass could not find a binding for your current environment:...
+
+puede ser un problema de versiones. Debería solucionarse con:
+
+$ npm rebuild
+
 Si aparece el mensaje:
 
 "notify-send must be installed on the system."
