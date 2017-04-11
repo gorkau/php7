@@ -33,5 +33,11 @@ RUN apt-get update \
 ADD php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
 ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
+# Install chromium and X virtual framebuffer
+# https://github.com/mark-adams/docker-chromium-xvfb/blob/master/images/base/Dockerfile 
+ADD xvfb-chromium /usr/bin/xvfb-chromium
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/chromium-browser
+
 EXPOSE 9000
 CMD ["php-fpm7.0"]
