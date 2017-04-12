@@ -34,9 +34,9 @@ ADD php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
 ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 # Instalar el ChromeDriver
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg –i google-chrome-stable_current_amd64.deb
-apt-get install -y xvfb
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && sudo dpkg –i google-chrome-stable_current_amd64.deb \
+    && apt-get install -y xvfb
 
 EXPOSE 9000
 CMD ["php-fpm7.0"]
