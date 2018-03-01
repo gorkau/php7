@@ -13,9 +13,9 @@ RUN apt-get update \
     && apt-get install -y curl zip unzip git software-properties-common \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
-    && apt-get install -y php7.0-fpm php7.0-cli php7.0-mcrypt php7.0-gd php7.0-mysql \
-       php7.0-pgsql php7.0-imap php-memcached php7.0-mbstring php7.0-xml php7.0-curl \
-       php7.0-sqlite \
+    && apt-get install -y php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-gd php7.1-mysql \
+       php7.1-pgsql php7.1-imap php-memcached php7.1-mbstring php7.1-xml php7.1-curl \
+       php7.1-sqlite \
     && apt-get install wget \
     && wget https://phar.phpunit.de/phpunit.phar \
     && chmod +x phpunit.phar \
@@ -30,8 +30,8 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
-ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
+ADD php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
+ADD www.conf /etc/php/7.1/fpm/pool.d/www.conf
 
 # Instalar el ChromeDriver
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
@@ -39,4 +39,4 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
     && apt-get install -y xvfb
 
 EXPOSE 9000
-CMD ["php-fpm7.0"]
+CMD ["php-fpm7.1"]
