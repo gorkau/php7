@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 MAINTAINER Gorka Urrutia
+# Preparar locales
 
 RUN apt-get update && apt-get -y install locales \
     && locale-gen en_US.UTF-8
